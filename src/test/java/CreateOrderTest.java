@@ -12,7 +12,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 public class CreateOrderTest {
     String firstName="Иван";
     String lastName="Иванов";
-    String address="Москва Ленина 11" ;
+    String address="Москва Ленина 11"  ;
     int metroStation=2;
     String phone="+7 888 355 35 35";
     int rentTime=2;

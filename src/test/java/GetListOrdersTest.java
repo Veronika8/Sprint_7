@@ -19,7 +19,7 @@ public class GetListOrdersTest {
                 given()
                         .header("Content-type", "application/json")
                         .when()
-                        .get("/api/v1/orders") ;
+                        .get("/api/v1/orders")  ;
         response.then().assertThat().statusCode(200)
                 .body("orders",notNullValue());
     }

@@ -42,7 +42,7 @@ public class LoginCourierTest {
                 .post("/api/v1/courier/login");
         response.then().assertThat().statusCode(200)
                 .and().body("id",notNullValue());
-        return response ;
+        return response  ;
     }
 
     @Step("Send to delete /api/v1/courier/id")

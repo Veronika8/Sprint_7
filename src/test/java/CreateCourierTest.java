@@ -45,7 +45,7 @@ public class CreateCourierTest {
     @Step("Send to delete /api/v1/courier/id")
     public void sendDeleteCourier(int id) {
         given()
-                .header("Content-type", "application/json")
+                .header("Content-type" , "application/json")
                 .when()
                 .delete("/api/v1/courier/"+id)
                 .then().assertThat().statusCode(200);

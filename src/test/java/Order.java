@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Order {
-    private String firstName;
+    private String firstName ;
     private String lastName;
     private String address;
     private int metroStation;
