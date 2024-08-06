@@ -1,6 +1,5 @@
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import org.junit.Before;
+import api.model.Order;
+import api.client.OrdersClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -9,7 +8,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 @RunWith(Parameterized.class)
-public class CreateOrderTest {
+public class CreateOrderTest extends BaseTest {
     String firstName="Иван";
     String lastName="Иванов";
     String address="Москва Ленина 11";
@@ -36,22 +35,10 @@ public class CreateOrderTest {
         };
     }
 
-    @Before
-    public void setUp() {
-        RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru";
-    }
-
     @Test
     public void checkCreateOrderWithColorsTest() {
         Order order=new Order(number,firstName,lastName,address,metroStation,phone,rentTime,deliveryDate,comment,colors);
-        Response response =
-                given()
-                        .header("Content-type", "application/json")
-                        .body(order)
-                        .when()
-                        .post("/api/v1/orders");
-        response.then().assertThat().statusCode(201)
-                .body("track",notNullValue());
-
+        OrdersClient ordersClient=new OrdersClient();
+        ordersClient.sendPostRequestOrder(order);
     }
 }
